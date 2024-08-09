@@ -17,5 +17,5 @@ test('Accordion', async ({ page }) => {
     await page.getByRole('button', { name: 'QA C01-1 - Accordion Item -' }).click();
      await expect(page.getByLabel('QA C01-1 - Accordion Item -').getByTestId('rich-text').first()).toBeVisible();
     
-    await expect(page).toHaveScreenshot();
+    await expect(page).toHaveScreenshot({ threshold: 0.05 });
 });

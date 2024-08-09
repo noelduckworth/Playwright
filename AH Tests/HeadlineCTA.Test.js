@@ -16,5 +16,5 @@ test('Headline CTA', async ({ page }) => {
    await expect(page.getByRole('heading', { name: 'Headline CTA' })).toBeVisible();
    await expect(page.getByTestId('headline-with-optional-cta').getByTestId('anchor')).toBeVisible();
 
-    await expect(page).toHaveScreenshot('HeadlineCTA.png', { fullPage: true });
+    await expect(page).toHaveScreenshot('HeadlineCTA.png', { fullPage: true, threshold: 0.01 });
 });
