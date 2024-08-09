@@ -2,9 +2,11 @@
 const { test, expect } = require('@playwright/test');
 
 test('General Left Nav Page', async ({ page }) => {
-    await page.goto('https://sc-main-advocatehealthcom.ahcdigital.org/QA-Home/General%20Left%20Nav%20Page');
-    await expect(page.getByRole('region', { name: 'QA Home' })).toBeVisible();
-    await page.getByTestId('left-navigation-list').getByTestId('accordion-trigger').click();
-    await expect(page.getByRole('region', { name: 'QA Home', exact: true })).toBeVisible();
+    await page.goto('https://sc-sandbox-main-advocatehealthcom.ahcdigital.org/zQA-Home-New/QA-Services-Specialties-2/QA-Service-Line-Landing-Page');
+     await expect(page.getByRole('region', { name: 'Basic Left Nav Page with' })).toBeVisible();
+     await expect(page.getByTestId('left-navigation-list')).toBeVisible();
+    await page.getByRole('button', { name: 'See more QA Test' }).click();
+     await expect(page.getByTestId('left-navigation-list')).toBeVisible();
+  
     await expect(page).toHaveScreenshot();
 });

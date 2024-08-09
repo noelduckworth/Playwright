@@ -2,21 +2,19 @@
 const { test, expect } = require('@playwright/test');
 
 test('Headline', async ({ page }) => {
-    await page.goto('https://sc-main-advocatehealthcom.ahcdigital.org/QA/C03%20Headline%20With%20Optional%20CTA/C03%20Headline%20With%20Optional%20CTA');
+  await page.goto('https://sc-sandbox-main-advocatehealthcom.ahcdigital.org/zQA-Home-New/QA-Services-Specialties-2/QA-Service-Line-Landing-Page');
 
-    await expect(page.getByRole('heading', { name: 'Headline With Optional CTA Test', exact: true })).toBeVisible();
-    await expect(page.getByTestId('column-grid')).toContainText('Headline With Optional CTA Test');
-
+   await expect(page.getByRole('heading', { name: 'QA C03-1 - Headline w/' })).toBeVisible();
+   await expect(page.getByTestId('headline-with-optional-cta').getByRole('heading')).toContainText('QA C03-1 - Headline w/Optional CTA Ortho Services');
   await expect(page).toHaveScreenshot('Headline.png', { fullPage: true });
 });
 
 
 test('Headline CTA', async ({ page }) => {
-    await page.goto('https://sc-main-advocatehealthcom.ahcdigital.org/QA/C03%20Headline%20With%20Optional%20CTA/C03%20Headline%20With%20Optional%20CTA');
-
-    await expect(page.getByRole('heading', { name: 'Headline With Optional CTA Test', exact: true })).toBeVisible();
-    await expect(page.getByText('Headline with Optional CTA Test 2Learn More')).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Learn More' })).toBeVisible();
+  await page.goto('https://sc-sandbox-main-advocatehealthcom.ahcdigital.org/zQA-Home-New/QA-Services-Specialties-2');
+   await expect(page.getByText('Headline CTAQA Home NewLorem')).toBeVisible();
+   await expect(page.getByRole('heading', { name: 'Headline CTA' })).toBeVisible();
+   await expect(page.getByTestId('headline-with-optional-cta').getByTestId('anchor')).toBeVisible();
 
     await expect(page).toHaveScreenshot('HeadlineCTA.png', { fullPage: true });
 });
