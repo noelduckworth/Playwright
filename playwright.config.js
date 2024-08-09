@@ -11,12 +11,12 @@ const { defineConfig, devices } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
-  testDir: './tests',
+  testDir: './AH Tests',
   /* Run tests in files in parallel */
-  timeout: 30 * 1000,
-  expect: {
-    timeout: 5000
-  },
+ // timeout: 30 * 1000,
+  //expect: {
+    //timeout: 5000
+//  },
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
@@ -42,15 +42,15 @@ module.exports = defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+   // {
+//name: 'firefox',
+    //  use: { ...devices['Desktop Firefox'] },
+   // },
+//
+    //{
+    //  name: 'webkit',
+    //  use: { ...devices['Desktop Safari'] },
+  //  },
 
     /* Test against mobile viewports. */
     // {

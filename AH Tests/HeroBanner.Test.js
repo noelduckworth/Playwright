@@ -2,21 +2,23 @@
 const { test, expect } = require('@playwright/test');
 
 test('Hero Banner Carousel', async ({ page }) => {
-  await page.goto('https://sc-main-advocatehealthcom.ahcdigital.org/QA-Home/doctors?sc_site=AdvocateHealthCom');
-  await expect(page.getByTestId('hero-banner-carousel').getByTestId('hero-banner')).toBeVisible();
-  await expect(page.getByTestId('hero-banner-carousel').getByTestId('heading')).toContainText('QA B01 - Hero Banner2');
-  await page.getByRole('button', { name: 'Next slide' }).click();
-  await page.getByRole('button', { name: 'Pause' }).click();
-  await expect(page).toHaveScreenshot('HeroBannerCarousel.png', { fullPage: true })
+  //page.goto('https://google.com', { waitUntil: 'networkidle' });
+  await page.goto('https://sc-sandbox-main-advocatehealthcom.ahcdigital.org/zQA-Home-New', { waitUntil: 'networkidle' });
+  await page.getByTestId('hero-banner-carousel').getByRole('button', { name: 'Pause' }).click();
+   await expect(page.getByTestId('hero-banner-carousel').getByLabel('1 /').getByTestId('hero-banner')).toBeVisible();
+   await expect(page.getByRole('heading', { name: 'Hero Banner 1' })).toBeVisible();
+   await expect(page.getByTestId('hero-banner-carousel').getByLabel('1 /').getByTestId('rich-text-supporting-copy').getByText('Hero banner supporting copy tel:18003238622 Find a Cardiologist')).toBeVisible();
+   await expect(page.getByRole('link', { name: '-800-3 Advocate' })).toBeVisible();
+   await expect(page.getByRole('link', { name: '-800-3 Advocate' })).toBeEnabled();
+   await expect(page.locator('._carousel-controls_3f4o4_218').first()).toBeVisible();
+    await expect(page).toHaveScreenshot('HeroBannerCarousel.png', { fullPage: true });
 });
 
 
 test('Hero Banner', async ({ page }) => {
-
-  await page.goto('https://sc-main-advocatehealthcom.ahcdigital.org/QA-Home/doctors?sc_site=AdvocateHealthCom');
-  await page.getByTestId('hero-banner').nth(1).scrollIntoViewIfNeeded;
-  await page.getByTestId('hero-banner').nth(1).click();  
-  await expect(page.getByTestId('hero-banner').nth(1)).toBeVisible();
-  await expect(page.locator('#content')).toContainText('QAB01 - QA Hero BannerThis instance is set to HIDE on mobile devices. This is a fine headline for QA testing.');
+  await page.goto('https://sc-sandbox-main-advocatehealthcom.ahcdigital.org/zQA-Home-New/QA-Services-Specialties-2');
+   await expect(page.getByTestId('hero-banner')).toBeVisible();
+   await expect(page.getByTestId('hero-banner').getByText('Hero BannerHero Banner')).toBeVisible();
+   await expect(page.getByTestId('first-link-desktop')).toBeVisible();
   await expect(page).toHaveScreenshot('HeroBanner.png', { fullPage: true })
 });
