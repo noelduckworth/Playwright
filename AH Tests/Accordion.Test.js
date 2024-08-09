@@ -15,5 +15,5 @@ test('Accordion', async ({ page }) => {
     await page.getByRole('button', { name: 'How do I find a doctor or' }).first().click();
     await expect(page.locator('[id="radix-\\:Rcin6\\:"] > div')).toBeVisible();
     
-    await expect(page).toHaveScreenshot();
+    await expect(page).toHaveScreenshot({ threshold: 0.05 });
 });

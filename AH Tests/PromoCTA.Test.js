@@ -2,11 +2,10 @@
 const { test, expect } = require('@playwright/test');
 
 test('Promo CTA', async ({ page }) => {
-  await page.goto('https://sc-main-advocatehealthcom.ahcdigital.org/QA%20Page/ADV%20QA%20C07-1%20Promo%20Callout');
-  await expect(page.locator('div').filter({ hasText: 'ADV QA C07-1 - Promo CTAADV' }).nth(3)).toBeVisible();
-  await expect(page.locator('#content')).toContainText('ADV QA C07-1 - Promo CTA');
-  await expect(page.getByTestId('rich-text').getByRole('paragraph')).toContainText('ADV QA Supporting copy testing Promo Callout');
-  await expect(page.getByRole('link', { name: 'ADV QA CTA 1' })).toBeVisible();
-  await expect(page.getByRole('link', { name: 'ADV QA CTA 2' })).toBeVisible();
+  await page.goto('https://sc-sandbox-main-advocatehealthcom.ahcdigital.org/zQA-Home-New/QA%20Automation%20Basic%20Page');
+   await expect(page.getByTestId('promo-callout').first()).toBeVisible();
+   await expect(page.getByText('C07 - Promo CTALorem ipsum')).toBeVisible();
+   await expect(page.getByRole('link', { name: '/zQA-Home-New' })).toBeVisible();
+   await expect(page.getByRole('link', { name: '/zQA-Home-New' })).toBeEnabled();
   await expect(page).toHaveScreenshot();
 });
