@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 
 test('Accordion', async ({ page }) => {
     await page.goto('https://sc-main-advocatehealthcom.ahcdigital.org/QA-Page/Accordion');
-    await page.getByRole('button', { name: 'QA C01-1 - Accordion Item -' }).click();
+   await page.getByRole('button', { name: 'QA C01-1 - Accordion Item -' }).click();
     await expect(page.getByLabel('QA C01-1 - Accordion Item -').getByTestId('rich-text').first()).toBeVisible();
   
     await page.getByRole('button', { name: 'Accordion Headline Here 2' }).first().click();
