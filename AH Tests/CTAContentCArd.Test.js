@@ -10,5 +10,5 @@ test('CTA Content Card', async ({ page }) => {
    await expect(page.getByText('First CTA QA buttonSecond CTA')).toBeVisible();
    await expect(page.getByRole('link', { name: 'Second CTA button QA' })).toBeVisible();
 
-  await expect(page).toHaveScreenshot();
+  await expect(page).toHaveScreenshot({threshold: 0.15 });
 });
