@@ -15,5 +15,5 @@ test('CTA Content Card', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Learn More' })).toBeEnabled();
 
 
-  await expect(page).toHaveScreenshot();
+  await expect(page).toHaveScreenshot({threshold: 0.15 });
 });

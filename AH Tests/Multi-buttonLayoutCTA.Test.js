@@ -6,16 +6,15 @@ test('Accordion', async ({ page }) => {
     
     await expect(page.getByTestId('icon-cta-bordered-grid')).toBeVisible();
 
-    await expect(page.getByTestId('icon-cta-bordered-card').first()).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Schedule in Livewell' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Schedule in Livewell' })).toBeEnabled();
-
-    await expect(page.getByTestId('icon-cta-bordered-card').nth(1)).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Schedule online' })).toBeEnabled();
-    await expect(page.getByTestId('icon-cta-bordered-card-second-cta')).toBeVisible();
-
-    await expect(page.getByText('ADV QAC31-3 - PhoneCall us to schedule your orthopedic appointment at a location near you.Call 800-323-')).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Call 800-323-' })).toBeEnabled();
-    
+     await expect(page.locator('#content div').filter({ hasText: 'ADV QA C04-1 - Multi-button' }).nth(2)).toBeVisible();
+   
+   await expect(page.locator('div').filter({ hasText: /^Advocate HealthQA Home NewHealth ServicesFind a Cardiologist$/ }).getByTestId('multi-button-1')).toBeVisible();
+   await expect(page.getByTestId('multi-button-2')).toBeVisible();
+   await expect(page.getByTestId('multi-button-3')).toBeVisible();
+   await expect(page.getByTestId('multi-button-4')).toBeVisible();
+   await expect(page.locator('div').filter({ hasText: /^Advocate HealthQA Home NewHealth ServicesFind a Cardiologist$/ }).getByTestId('multi-button-1')).toBeEnabled();
+   await expect(page.getByTestId('multi-button-2')).toBeEnabled();
+   await expect(page.getByTestId('multi-button-3')).toBeEnabled();
+   await expect(page.getByTestId('multi-button-4')).toBeEnabled();
     await expect(page).toHaveScreenshot();
 });

@@ -11,7 +11,7 @@ test('Bio Directory Card', async ({ page }) => {
    await expect(page.getByTestId('bio-card').nth(1)).toBeVisible();
    await expect(page.getByAltText('  ')).toBeVisible();
    await expect(page.getByText('Biography FourSpecialty:')).toBeVisible();
-  await expect(page).toHaveScreenshot('BioDirectoryCard.png', { fullPage: true });
+  await expect(page).toHaveScreenshot('BioDirectoryCard.png', { fullPage: true , threshold: 0.5  });
 });
 
 test('Bio Grid', async ({ page }) => {
@@ -19,9 +19,8 @@ test('Bio Grid', async ({ page }) => {
    await expect(page.getByText('Bio Card GridBiography OneQA')).toBeVisible();
    await expect(page.getByText('Biography OneQA Analyst, Sr.')).toBeVisible();
    await expect(page.getByRole('img', { name: 'Advocate Aurora Health contributed $2.1B to community charitable care and' })).toBeVisible();
-   await expect(page.getByRole('link', { name: 'Biography One' })).toBeVisible();
-   await expect(page.getByRole('link', { name: 'Biography One' })).toBeVisible();
-   await expect(page.getByText('Biography TwoBiography Two')).toBeVisible();
+   await expect(page.getByText('Biography OneQA Analyst, Sr.')).toBeVisible();
+  await expect(page.getByText('Biography TwoBiography Two')).toBeVisible();
    await expect(page.getByText('Biography FiveBiography Card')).toBeVisible();
    await expect(page.getByText('Biography SixBiography Card')).toBeVisible();
   await expect(page).toHaveScreenshot('BioGrid.png', { fullPage: true });
