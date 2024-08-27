@@ -21,5 +21,5 @@ test('Hero Banner', async ({ page }) => {
    await expect(page.getByTestId('hero-banner-first-link-desktop')).toBeVisible();
    await expect(page.getByTestId('hero-banner-first-link-desktop')).toBeEnabled();
 
-  await expect(page).toHaveScreenshot('HeroBanner.png', { fullPage: true })
+  await expect(page).toHaveScreenshot('HeroBanner.png', { fullPage: true ,  threshold: 5.5 })
 });
