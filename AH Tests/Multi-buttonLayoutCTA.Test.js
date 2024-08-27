@@ -1,10 +1,8 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
-test('Accordion', async ({ page }) => {
-    await page.goto('https://sc-main-advocatehealthcom.ahcdigital.org/QA-Home/QA-Services-and-Specialties/QA-Service-Line-Landing-Page');
-    
-    await expect(page.getByTestId('icon-cta-bordered-grid')).toBeVisible();
+test('Multi-buttonLayoutCTA', async ({ page }) => {
+    await page.goto('https://sc-sandbox-main-advocatehealthcom.ahcdigital.org/zQA-Home-New/ADVQA%20Kitchen%20Sink%20Basic%20Page');
 
      await expect(page.locator('#content div').filter({ hasText: 'ADV QA C04-1 - Multi-button' }).nth(2)).toBeVisible();
    
@@ -17,4 +15,5 @@ test('Accordion', async ({ page }) => {
    await expect(page.getByTestId('multi-button-3')).toBeEnabled();
    await expect(page.getByTestId('multi-button-4')).toBeEnabled();
     await expect(page).toHaveScreenshot();
+    await page.screenshot({ fullPage: true });
 });

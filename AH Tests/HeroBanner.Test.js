@@ -2,7 +2,6 @@
 const { test, expect } = require('@playwright/test');
 
 test('Hero Banner Carousel', async ({ page }) => {
-
   await page.goto('https://sc-sandbox-main-advocatehealthcom.ahcdigital.org/zQA-Home-New');
   await page.getByTestId('hero-banner-carousel').getByRole('button', { name: 'Pause' }).click();
    await expect(page.getByTestId('hero-banner-carousel').getByLabel('1 /').getByTestId('hero-banner-desktop').locator('div').filter({ hasText: 'Hero Banner 1Hero banner' }).first()).toBeVisible();
